@@ -6,7 +6,7 @@
 /*   By: rmakoni <rmakoni@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 16:22:45 by rmakoni           #+#    #+#             */
-/*   Updated: 2025/04/01 17:21:18 by rmakoni          ###   ########.fr       */
+/*   Updated: 2025/04/01 17:59:32 by rmakoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,22 @@ int	main(int argc, char **argv)
 		std::cout << "Please enter ADD, SEARCH, or EXIT\n";
 		std::cin >> command;
 		command_id = valid_command(command);
-		if (command_id)
+		if (command_id == -1)
+		{
+			std::cout << "ïnvalid command entered\n";
+			continue ;
+		}
+		else if (command_id == 1)
+			add_contact();
+		else if (command_id == 2)
+			get_all_contacts();
+		else if (command_id == 3)
+		{
+			std::cout << "Exiting Program\n";
+			break ;
+		}
+		else
+			continue ;
 	}
+	return (0);
 }
