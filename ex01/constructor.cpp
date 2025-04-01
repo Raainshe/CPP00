@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Constructor.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmakoni <rmakoni@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 16:22:45 by rmakoni           #+#    #+#             */
-/*   Updated: 2025/04/01 17:21:18 by rmakoni          ###   ########.fr       */
+/*   Created: 2025/04/01 17:15:09 by rmakoni           #+#    #+#             */
+/*   Updated: 2025/04/01 17:24:05 by rmakoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
-int	valid_command(std::string command)
+Contact::Contact(const std::string &firstName, const std::string &lastName,
+		const std::string &nickName, const std::string &phoneNumber,
+		const std::string &darkestSecret)
+	: firstName(firstName), lastName(lastName), nickName(nickName),
+		phoneNumber(phoneNumber), darkestSecret(darkestSecret)
 {
-	if (command == "ADD")
-		return (1);
-	else if (command == "SEARCH")
-		return (2);
-	else if (command == "EXIT")
-		return (3);
-	return (-1);
-}
-int	main(int argc, char **argv)
-{
-	int	command_id;
-
-	std::string command;
-	while (1)
-	{
-		std::cout << "Please enter ADD, SEARCH, or EXIT\n";
-		std::cin >> command;
-		command_id = valid_command(command);
-		if (command_id)
-	}
 }
