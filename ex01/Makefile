@@ -1,7 +1,7 @@
 NAME = phonebook
 
 SRC = 	phonebook.cpp\
-		constuctor.cpp
+		constructor.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

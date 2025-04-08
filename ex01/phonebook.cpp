@@ -6,7 +6,7 @@
 /*   By: rmakoni <rmakoni@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 16:22:45 by rmakoni           #+#    #+#             */
-/*   Updated: 2025/04/04 16:24:46 by rmakoni          ###   ########.fr       */
+/*   Updated: 2025/04/08 12:52:32 by rmakoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ int	valid_command(std::string command)
 void	CreateContact(PhoneBook NewPhonebook)
 {
 	bool	valid;
+	int		i;
 
 	std::string sname, ssurname, snick, sphone, ssecret;
 	valid = false;
+	i = 0;
 	while (!valid)
 	{
 		std::cout << "Enter your First Name: ";
@@ -56,9 +58,15 @@ void	CreateContact(PhoneBook NewPhonebook)
 
 void	GetAllContacts(PhoneBook phonebook)
 {
+	int	i;
+
+	phonebook.getAllContacts();
+	std::cout << "Whcih index would you like to display: ";
+	std::cin >> i;
+	phonebook.getContactByIndex(i);
 }
 
-int	main(int argc, char **argv)
+int	main(void)
 {
 	int			command_id;
 	PhoneBook	PhoneBooks;

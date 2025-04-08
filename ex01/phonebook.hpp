@@ -6,36 +6,16 @@
 /*   By: rmakoni <rmakoni@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 16:22:42 by rmakoni           #+#    #+#             */
-/*   Updated: 2025/04/04 16:26:50 by rmakoni          ###   ########.fr       */
+/*   Updated: 2025/04/08 12:37:28 by rmakoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
+# include <iomanip>
 # include <iostream>
 # include <string>
-
-class PhoneBook
-{
-  private:
-	Contact contacts[8];
-	int count;
-	int oldestIndex;
-
-  public:
-	PhoneBook();
-
-	void addContact(const Contact &newContact);
-	void getAllContacts() const;
-	int getCount() const;
-};
-
-PhoneBook::PhoneBook()
-{
-	count = 0;
-	oldestIndex = 0;
-}
 
 class Contact
 {
@@ -54,7 +34,27 @@ class Contact
 			const std::string &darkestSecret);
 
 	// Getter methods
-	std::string getContact(int index);
+	std::string getFirstName() const;
+	std::string getLastName() const;
+	std::string getNickName() const;
+	std::string getPhoneNumber() const;
+	std::string getDarkestSecret() const;
+};
+
+class PhoneBook
+{
+  private:
+	Contact contacts[8];
+	int count;
+	int oldestIndex;
+
+  public:
+	PhoneBook();
+
+	void addContact(const Contact &newContact);
+	void getAllContacts() const;
+	void getContactByIndex(int i) const;
+	int getCount() const;
 };
 
 #endif
