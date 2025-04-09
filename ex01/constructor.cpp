@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Constructor.cpp                                    :+:      :+:    :+:   */
+/*   constructor.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmakoni <rmakoni@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 17:15:09 by rmakoni           #+#    #+#             */
-/*   Updated: 2025/04/08 12:37:18 by rmakoni          ###   ########.fr       */
+/*   Updated: 2025/04/08 22:34:28 by rmakoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ void PhoneBook::addContact(const Contact &newContact)
 	}
 }
 
+int PhoneBook::getCount() const
+{
+	return count;
+}
+
 void PhoneBook::getAllContacts() const
 {
 	std::cout << "|     Index|First Name| Last Name|  Nickname|\n";
@@ -50,7 +55,7 @@ void PhoneBook::getAllContacts() const
 	for (int i = 0; i < count; i++)
 	{
 		// Display each contact
-		std::cout << "|" << std::setw(10) << i + 1 << "|";
+		std::cout << "|" << std::setw(10) << i << "|";
 		std::string fname = contacts[i].getFirstName();
 		if (fname.length() > 10)
 			fname = fname.substr(0, 9) + ".";

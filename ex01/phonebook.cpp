@@ -6,7 +6,7 @@
 /*   By: rmakoni <rmakoni@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 16:22:45 by rmakoni           #+#    #+#             */
-/*   Updated: 2025/04/08 12:52:32 by rmakoni          ###   ########.fr       */
+/*   Updated: 2025/04/08 22:28:05 by rmakoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,10 @@ int	valid_command(std::string command)
 	return (-1);
 }
 
-void	CreateContact(PhoneBook NewPhonebook)
+void ContactDetails(PhoneBook &NewPhonebook)
 {
-	bool	valid;
-	int		i;
-
 	std::string sname, ssurname, snick, sphone, ssecret;
-	valid = false;
-	i = 0;
-	while (!valid)
-	{
-		std::cout << "Enter your First Name: ";
+	std::cout << "Enter your First Name: ";
 		std::cin >> sname;
 		std::cout << "Enter your Last Name: ";
 		std::cin >> ssurname;
@@ -46,17 +39,29 @@ void	CreateContact(PhoneBook NewPhonebook)
 		if (sname.empty() || ssurname.empty() || snick.empty() || sphone.empty()
 			|| ssecret.empty())
 		{
-			valid = false;
 			std::cout << "The data you entered was not complete. Please try again :)";
 		}
 		else
-			valid = true;
-	}
-	Contact newContact(sname, ssurname, snick, sphone, ssecret);
-	NewPhonebook.addContact(newContact);
+		{
+			Contact newContact(sname, ssurname, snick, sphone, ssecret);
+			NewPhonebook.addContact(newContact);
+			std::cout << "Contact added successfully!\n";
+		}
 }
 
-void	GetAllContacts(PhoneBook phonebook)
+void	CreateContact(PhoneBook &NewPhonebook)
+{
+	
+	while (NewPhonebook.getCount() < 8 )
+	{
+		ContactDetails(NewPhonebook);
+	}
+	if(NewPhonebook.getCount() == 8)
+		ContactDetails(NewPhonebook);
+	
+}
+
+void	GetAllContacts(PhoneBook &phonebook)
 {
 	int	i;
 
