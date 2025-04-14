@@ -6,7 +6,7 @@
 /*   By: rmakoni <rmakoni@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 16:22:45 by rmakoni           #+#    #+#             */
-/*   Updated: 2025/04/14 15:22:56 by rmakoni          ###   ########.fr       */
+/*   Updated: 2025/04/14 15:39:35 by rmakoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,7 @@ void	ContactDetails(PhoneBook &NewPhonebook)
 
 void	CreateContact(PhoneBook &NewPhonebook)
 {
-	while (NewPhonebook.getCount() < 8)
-	{
-		ContactDetails(NewPhonebook);
-	}
-	if (NewPhonebook.getCount() == 8)
-		ContactDetails(NewPhonebook);
+	ContactDetails(NewPhonebook);
 }
 
 void	GetAllContacts(PhoneBook &phonebook)
@@ -71,7 +66,7 @@ void	GetAllContacts(PhoneBook &phonebook)
 		phonebook.getContactByIndex(i);
 	}
 	else
-		std::cout << "There are currently no ";
+		std::cout << "There are currently no contacts to display\n";
 }
 
 int	main(void)

@@ -6,7 +6,7 @@
 /*   By: rmakoni <rmakoni@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 17:15:09 by rmakoni           #+#    #+#             */
-/*   Updated: 2025/04/14 15:22:49 by rmakoni          ###   ########.fr       */
+/*   Updated: 2025/04/14 15:37:29 by rmakoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void PhoneBook::addContact(const Contact &newContact)
 	else
 	{
 		contacts[oldestIndex] = newContact;
-		oldestIndex = (oldestIndex + 1) % 8;
+		oldestIndex++;
+		oldestIndex = (oldestIndex) % 8;
 	}
 }
 
@@ -80,7 +81,7 @@ void PhoneBook::getContactByIndex(int i) const
 					<< (count - 1) << ".\n";
 		return ;
 	}
-	std::cout << "|" << std::setw(10) << i + 1 << "|";
+	std::cout << "|" << std::setw(10) << i << "|";
 
 	std::string fname = contacts[i].getFirstName();
 	if (fname.length() > 10)
