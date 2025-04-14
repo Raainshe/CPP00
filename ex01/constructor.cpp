@@ -6,7 +6,7 @@
 /*   By: rmakoni <rmakoni@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 17:15:09 by rmakoni           #+#    #+#             */
-/*   Updated: 2025/04/08 22:34:28 by rmakoni          ###   ########.fr       */
+/*   Updated: 2025/04/14 15:22:49 by rmakoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void PhoneBook::addContact(const Contact &newContact)
 
 int PhoneBook::getCount() const
 {
-	return count;
+	return (count);
 }
 
 void PhoneBook::getAllContacts() const
@@ -73,6 +73,13 @@ void PhoneBook::getAllContacts() const
 
 void PhoneBook::getContactByIndex(int i) const
 {
+	// Check if index is valid
+	if (i < 0 || i >= count)
+	{
+		std::cout << "Error: Invalid index. Please enter a number between 0 and "
+					<< (count - 1) << ".\n";
+		return ;
+	}
 	std::cout << "|" << std::setw(10) << i + 1 << "|";
 
 	std::string fname = contacts[i].getFirstName();
